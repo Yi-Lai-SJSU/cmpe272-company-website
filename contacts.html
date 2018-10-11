@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Sichuan Impression</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Black" rel="stylesheet">
+</head>
+<body id="contacts-body">
+	<header id="header">
+		<nav id="header-navigation" class="header-navigation">
+			<a href="index.html">HOME</a>
+			<a href="about.html">ABOUT</a>
+			<a href="products.html">PRODUCTS</a>
+			<a href="News.html">NEWS</a>
+			<a href="Contacts.html">CONTACTS</a>				
+		</nav>
+	</header>
+	<main id="contacts-main" class="main">
+		<section id="contacts-section">
+			<div id='map' class="contacts-component"></div>
+		</section>
+	</main>
+	<aside id="contracts-aside">
+		<div id="address">
+			<h3>Our Address</h3>
+<?php
+	$lines=file("address.txt");
+    foreach ($lines as $value) {
+    	$line = explode("|",$value);
+    	if (strcmp($line[0],"address") == 0) {
+    		echo "$line[1]<br>";
+    	} 
+	}
+?>
+
+		</div>
+
+			<div id="office-hours">
+				<p><strong>Phone Number</strong></p>
+<?php
+	$lines=file("address.txt");
+    foreach ($lines as $value) {
+    	$line = explode("|",$value);
+    	if (strcmp($line[0],"Phone-number") == 0) {
+    		echo "$line[1]<br>";
+    	} 
+	}
+?>
+				<p><strong>Office Hours:</strong></p>
+<?php
+	$lines=file("address.txt");
+    foreach ($lines as $value) {
+    	$line = explode("|",$value);
+    	if (strcmp($line[0],"office-hour") == 0) {
+    		echo "$line[1]<br>";
+    	} 
+	}
+?>
+		</div>
+		</aside>
+</body>
+</html>

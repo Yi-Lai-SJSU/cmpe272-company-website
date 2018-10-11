@@ -1,0 +1,189 @@
+#header {
+  width: auto;
+  background: black;
+}
+
+#header-navigation {
+  width: 1400px;
+}
+
+#header-navigation a {
+  display: inline-block;
+  width: 150px;
+  height: 25px;
+  padding: 20px;
+  margin-left:40px;
+  margin-right: 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.main {
+	height: 700px;
+	width: auto; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#index-main {
+  background-image:url('../image/title.jpeg');
+}
+
+#index-main section { 
+	width: auto;
+	text-align: center;
+	padding-top: 320px;
+	font-size: 50px;
+	color: white;
+	font-family: 'Archivo Black', sans-serif;
+}
+
+#about-main {
+  background-image:url('../image/about.jpeg');
+}
+
+#about-main section { 
+	width: 800px;
+	text-align: center;
+	padding-top: 100px;
+	font-size: 40px;
+	color: white;
+	font-family: serif;
+}
+
+.products-navigation {
+  width: 300px;
+  height: 650px;
+  float: left;
+  background: black;
+  border: 10px solid black;
+}
+
+.products-navigation a {
+	display: block; ;
+	width: 300px
+	height: 110px;
+  padding: 35px;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+
+.products-section {
+  height: 650px;
+  width: auto; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: auto;
+  background-position: center;
+}
+
+#products-main-section {
+  background-image:url('../image/douhua.jpeg');
+}
+
+#products-special-section {
+  background-image: url('../image/chuanchuan.jpeg');
+}
+
+#products-soup-section {
+  background-image: url('../image/xiaomian.jpeg');
+}
+
+#products-fried-rices-section {
+  background-image: url('../image/chaoshou.jpeg');
+}
+
+#products-greens-section {
+  background-image: url('../image/title.jpeg');
+}
+
+#products-desserts-section {
+  background-image: url('../image/about.jpeg');
+}
+
+.menu {
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  padding: 20px;
+  margin-left: 100px;
+  margin-top: 50px;
+  display:inline-block;
+}
+
+.menu div {
+  margin: 15px;
+  margin-left: 80px;
+  border: 1px solid red;
+  display: inline-table;
+}
+
+.menu p {
+  font-size: 20px;
+  font-family: serif;
+  text-align: center;
+}
+
+#news-main {
+  background-image: url('../image/news.jpg');
+}
+
+#news-main section { 
+  width: auto;
+  text-align: center;
+  padding-top: 320px;
+  font-size: 50px;
+  color: white;
+  display: inline-block;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+#contacts-main {
+  display: inline-block;
+  border: 10px solid white;
+}
+
+#contacts-body {
+  display: inline-block;
+}
+
+#contacts-main {
+  background-image: url("../image/news.jpg");
+  float: left;
+  padding-right: 50px;
+}
+
+#map {
+  width: 700px;
+  height: 400px;
+  margin: 100px; 
+}
+
+#address {
+  font-size: 25px;
+  text-align: center;
+  font-family: serif;
+  color: black;
+}
+
+#contracts-aside {
+  width: 200px;
+  height: 400px;
+  display: inline;
+  font-size: 22px;
+}
+
+#office-hours {
+  padding: 20px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+a {
+	TEXT-DECORATION:none
+} 

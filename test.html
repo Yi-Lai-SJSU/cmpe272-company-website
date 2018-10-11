@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>
+<?php
+$myfile = fopen("address.txt", "r") or die("Unable to open file!");
+$str = fread($myfile,filesize("address.txt"));
+print $str;
+fclose($myfile);
+?>
+</h2>
+
+</body>
+</html>

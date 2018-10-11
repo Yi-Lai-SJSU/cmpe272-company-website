@@ -1,0 +1,9 @@
+address|1234 Tree Road；San Jose, CA 95130.
+Phone-number|408666888;
+office-hour|Monday – 9:30 am – 8:30 pm
+office-hour|Tuesday – 9:30 am – 9:00 pm
+office-hour|Wednesday – 9:30 am – 8:30 pm
+office-hour|Thursday – 9:30 am – 9:00 pm
+office-hour|Friday – 9:30 am – 8:30 pm
+office-hour|Saturday – 8:30 am – 3:30 pm
+office-hour|Sunday – 2:00 pm – 7:30 pm

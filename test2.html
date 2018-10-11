@@ -1,0 +1,21 @@
+
+
+<?php
+function OutputTitle(){
+   echo 'TestPage';
+ }
+
+function OutputContent(){
+   echo 'Hello!';
+}
+?>
+
+<!DOCTYPE html>
+ <html>
+   <head>
+     <title><?php OutputTitle(); ?></title>
+   </head>
+   <body>
+     <span><?php OutputContent(); ?></span>
+   </body>
+ </html>
