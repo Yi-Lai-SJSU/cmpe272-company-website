@@ -1,6 +1,13 @@
 <?php
 	extract( $_GET);
 	setcookie("danchaofan", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
+
+	extract($_GET);
+	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
+	$txt = "danchaofan\n";
+	fwrite($myfile, $txt);
+	fclose($myfile);
+
 ?>
 
 <!DOCTYPE html>
