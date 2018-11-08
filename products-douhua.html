@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("douhua", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "douhua\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("douhua[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["douhua"]))
+	{
+		foreach ($_COOKIE["douhua"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("douhua[$count]",date('Y-m-d H:i:s'));
 ?>
 
 
@@ -32,7 +39,20 @@
 		<section id="douhua-main-section">
 			<img src="../image/douhua.jpeg" width="300" height="250">
 			<p>    Dou Hua: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["douhua"]; ?>
+			<p>Last Visit time: <p> 
+				<?php 
+				if (isset($_COOKIE["douhua"]))
+				{
+					foreach ($_COOKIE["douhua"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
+
+
+
+
 		</section>
 	</main>
 </body>

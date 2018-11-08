@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("shrimpchaofan", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "shrimpchaofan\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("shrimpchaofan[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["shrimpchaofan"]))
+	{
+		foreach ($_COOKIE["shrimpchaofan"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("shrimpchaofan[$count]",date('Y-m-d H:i:s'));
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +38,16 @@
 		<section id="shrimpchaofan-main-section">
 			<img src="../image/shrimpchaofan.jpeg" width="300" height="300">
 			<p>    Shrimp Fried rice: $10</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["shrimpchaofan"]; ?>
-
+			<p>Last Visit time: <p> 
+				<?php 
+				if (isset($_COOKIE["shrimpchaofan"]))
+				{
+					foreach ($_COOKIE["shrimpchaofan"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 		</section>
 	</main>
 </body>

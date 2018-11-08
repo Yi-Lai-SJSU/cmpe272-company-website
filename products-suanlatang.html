@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("suanlatang", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "suanlatang\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("suanlatang[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["suanlatang"]))
+	{
+		foreach ($_COOKIE["suanlatang"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("suanlatang[$count]",date('Y-m-d H:i:s'));
 ?>
 
 
@@ -32,7 +39,16 @@
 		<section id="suanlatang-main-section">
 			<img src="../image/suanlatang.jpeg" width="300" height="250">
 			<p>    Suan La Tang: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["suanlatang"]; ?>
+			<p>Last Visit time: <p> 
+				<?php 
+				if (isset($_COOKIE["suanlatang"]))
+				{
+					foreach ($_COOKIE["suanlatang"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 
 		</section>
 	</main>

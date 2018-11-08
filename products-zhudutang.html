@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("zhudutang", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "zhudutang\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("zhudutang[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["zhudutang"]))
+	{
+		foreach ($_COOKIE["zhudutang"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("zhudutang[$count]",date('Y-m-d H:i:s'));
 ?>
 
 
@@ -32,7 +39,16 @@
 		<section id="zhudutang-main-section">
 			<img src="../image/zhudutang.jpeg" width="300" height="300">
 			<p>    Zhu Du Tang: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["zhudutang"]; ?>
+			<p>Last Visit time: <p> 
+				<?php 
+				if (isset($_COOKIE["zhudutang"]))
+				{
+					foreach ($_COOKIE["zhudutang"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 
 
 		</section>

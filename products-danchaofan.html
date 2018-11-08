@@ -1,13 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("danchaofan", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "danchaofan\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("danchaofan[$count]",date('Y-m-d H:i:s'));
 
+	if (isset($_COOKIE["danchaofan"]))
+	{
+		foreach ($_COOKIE["danchaofan"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("danchaofan[$count]",date('Y-m-d H:i:s'));
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +38,16 @@
 		<section id="danchaofan-main-section">
 			<img src="../image/danchaofan.jpeg" width="300" height="250">
 			<p>    Egg Fried rice: $10</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["danchaofan"]; ?>
+			<p>Last Visit time: <p> 
+			<?php 
+				if (isset($_COOKIE["danchaofan"]))
+				{
+					foreach ($_COOKIE["danchaofan"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 		</section>
 	</main>
 </body>

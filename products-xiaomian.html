@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("xiaomian", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "xiaomian\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("xiaomian[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["xiaomian"]))
+	{
+		foreach ($_COOKIE["xiaomian"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("xiaomian[$count]",date('Y-m-d H:i:s'));
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +38,17 @@
 		<section id="xiaomian-main-section">
 			<img src="../image/xiaomian.jpeg" width="300" height="250">
 			<p>    Xiao Mian: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["xiaomian"]; ?>
+			<p>Last Visit time: <p> 
+
+				<?php 
+				if (isset($_COOKIE["xiaomian"]))
+				{
+					foreach ($_COOKIE["xiaomian"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 
 		</section>
 	</main>

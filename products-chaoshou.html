@@ -1,12 +1,19 @@
 <?php
 	extract( $_GET);
-	setcookie("chaoshou", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "chaoshou\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("chaoshou[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["chaoshou"]))
+	{
+		foreach ($_COOKIE["chaoshou"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("chaoshou[$count]",date('Y-m-d H:i:s'));
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +38,16 @@
 		<section id="chaoshou-main-section">
 			<img src="../image/chaoshou.jpeg" width="300" height="250">
 			<p>    Chao Shou: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["chaoshou"]; ?>
-			
-		
+			<p>Last Visit time: <p> 
+			<?php 
+				if (isset($_COOKIE["chaoshou"]))
+				{
+					foreach ($_COOKIE["chaoshou"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 		</section>
 	</main>
 </body>

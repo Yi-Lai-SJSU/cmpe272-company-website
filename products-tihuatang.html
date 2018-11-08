@@ -1,14 +1,20 @@
 <?php
 	extract( $_GET);
-	setcookie("tihuatang", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
 
-	extract($_GET);
-	$myfile = fopen("webhits.txt", "a+") or die("Unable to open file!");
-	$txt = "tihuatang\n";
-	fwrite($myfile, $txt);
-	fclose($myfile);
+	$count = 0;
+	
+	setcookie("tihuatang[$count]",date('Y-m-d H:i:s'));
+
+	if (isset($_COOKIE["tihuatang"]))
+	{
+		foreach ($_COOKIE["tihuatang"] as $name => $value)
+		{
+			$count++;
+		}
+	}
+
+	setcookie("tihuatang[$count]",date('Y-m-d H:i:s'));
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +38,17 @@
 		<section id="tihuatang-main-section">
 			<img src="../image/tihuatang.jpeg" width="300" height="300">
 			<p>    Ti Hua Tang: $15</p>
-			<p>Last Visit time: <p> <?php echo $_COOKIE["tihuatang"]; ?>
+			<p>Last Visit time: <p> 
+
+			<?php 
+				if (isset($_COOKIE["tihuatang"]))
+				{
+					foreach ($_COOKIE["tihuatang"] as $name => $value)
+					{
+						echo "$name : $value <br />";
+					}
+				}
+			?>	
 
 		</section>
 	</main>
