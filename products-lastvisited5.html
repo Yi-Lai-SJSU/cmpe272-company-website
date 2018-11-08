@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h3>
+		The last five previously visited products:
+	</h3>
+	<?php 
+		arsort($_COOKIE);
+		for ($i=0; $i<=4; $i++) {
+			echo "Last ". ($i+1). " Visit: ";
+			echo key($_COOKIE),'=>',current($_COOKIE),'<br/>';
+            next($_COOKIE);
+		}
+	?>
+
+	<h3>
+		The five most visited products:
+	</h3>
+	<?php
+
+		function reaFile($filename) 
+		{
+			$beefchaofan = 1;
+			$danchaofan = 2;
+			$shrimpchaofan = 3;
+			$porkchaofan = 5;
+
+			$xiaomian = 4;
+			$chaoshou = 0;
+			$douhua = 0;
+			$chuanchuan = 0;
+
+			$suanlatang = 0;
+			$suantangfeiniu = 0;
+			$zhudutang = 0;
+			$tihuatang = 0;
+			$count = 0;
+
+			$fh = fopen($filename, 'r');
+
+			while ( !feof($fh) ) {
+
+				$line = fgets($fh);
+			
+				if ( strpos($line, "beefchaofan" ) === 0) 
+				{
+					$beefchaofan++;
+					continue;
+				}
+
+				if ( strpos($line, "danchaofan" ) === 0)  
+				{
+					$danchaofan++;
+					continue;
+				}
+
+				if ( strpos($line, "shrimpchaofan" ) === 0) 
+				{
+					$shrimpchaofan++;
+					continue;
+				}
+
+				if ( strpos($line, "porkchaofan" ) === 0) 
+				{
+					$porkchaofan++;
+					continue;
+				}
+			
+				if ( strpos($line, "xiaomian" ) === 0) 
+				{
+					$xiaomian++;
+					continue;
+				}
+			
+
+				if ( strpos($line, "chaoshou" ) === 0) 
+				{
+					$chaoshou++;
+					continue;
+				}
+
+				if ( strpos($line, "douhua" ) === 0) 
+				{
+					$douhua++;
+					continue;
+				}
+
+				if ( strpos($line, "chuanchuan" ) === 0) 
+				{
+					$chuanchuan++;
+					continue;
+				}
+
+				if ( strpos($line, "chuanchuan" ) === 0) 
+				{
+					$chuanchuan++;
+					continue;
+				}
+
+				if ( strpos($line, "suantangfeiniu" ) === 0) 
+				{
+					$suantangfeiniu++;
+					continue;
+				}
+
+				if ( strpos($line, "zhudutang" ) === 0) 
+				{
+					$zhudutang++;
+					continue;
+				}
+
+				if ( strpos($line, "tihuatang" ) === 0) 
+				{
+					$tihuatang++;
+					continue;
+				}
+			}
+
+			$array['beefchaofan'] = $beefchaofan;
+			$array['danchaofan'] = $danchaofan;
+			$array['shrimpchaofan'] = $shrimpchaofan;
+			$array['porkchaofan'] = $porkchaofan;
+
+			$array['xiaomian'] = $xiaomian;
+			$array['chaoshou'] = $chaoshou;
+			$array['douhua'] = $douhua;
+			$array['chuanchuan'] = $chuanchuan;
+
+			$array['suanlatang'] = $suanlatang;
+			$array['suantangfeiniu'] = $suantangfeiniu;
+			$array['zhudutang'] = $zhudutang;
+			$array['tihuatang'] = $tihuatang;
+
+			arsort($array);
+
+			for ($i=0; $i<=4; $i++) {
+				echo "Most ". ($i+1). " Visited: ";
+				echo key($array),'=>',current($array),'<br/>';
+            	next($array);
+			}
+		}
+
+		$filename = 'webhits.txt';
+		reaFile($filename);
+	?>
+
+</body>
+</html>

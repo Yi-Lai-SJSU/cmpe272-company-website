@@ -1,0 +1,33 @@
+<?php
+	extract( $_GET);
+	setcookie("porkchaofan", date('Y-m-d H:i:s'), time()+60*60*24*30*12);
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Sichuan Impression</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Black" rel="stylesheet">
+</head>
+<body>
+	<header id="header">
+		<nav id="header-navigation" class="header-navigation">
+			<a href="main.html">HOME</a>
+			<a href="about.html">ABOUT</a>
+			<a href="products.html">PRODUCTS</a>
+			<a href="News.html">NEWS</a>
+			<a href="Contacts.html">CONTACTS</a>				
+		</nav>
+	</header>
+	<main id="porkchaofan-main" class="main">
+		<section id="porkchaofan-main-section">
+			<img src="../image/porkchaofan.jpeg" width="300" height="300">
+			<p>    Pork Fried rice: $10</p>
+			<p>Last Visit time: <p> <?php echo $_COOKIE["porkchaofan"]; ?>
+		</section>
+	</main>
+</body>
+</html>

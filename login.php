@@ -23,7 +23,7 @@
                 ";
             }
     } else {
-                echo "Please complete the form first. ";
+                echo "Please complete the form first. Go back to the login page soon";
                 echo "
                       <script>
                         setTimeout(function(){window.location.href='index.html';},1000);
