@@ -14,8 +14,6 @@
     {
         die("connection error>>>" . $conn->connect_error);
     } 
-    echo "Get User account from my own Company:";
-    echo "<br>";
     $q = "select id, username FROM user";
     $result=$conn->query($q);
     if ($result->num_rows > 0) {
@@ -29,10 +27,6 @@
     echo "<br>";
     $link_address = 'index.html';
     echo "<a href='".$link_address."'>Click here to go back.</a>";
-    $link_address1 = 'user-account-from-other-company.html';
-    echo "<br>";
-    echo "<br>";
-    echo "<a href='".$link_address1."'>Get User account from all Companys.</a>";
 ?>
 </body>
 </html>

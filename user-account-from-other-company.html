@@ -15,7 +15,7 @@
     {
         die("connection error>>>" . $conn->connect_error);
     } 
-    echo "Get User account from my own Company:";
+    echo "Users' accounta in my Company:";
     echo "<br>";
     $q = "select id, username FROM user";
     $result=$conn->query($q);
@@ -30,9 +30,9 @@
 
     echo "<br>";
     echo "<br>";
-    echo "Get User account from Company A:";
+    echo "Users' account in Company A:";
     echo "<br>";
-	$ch = curl_init("http://www.crazyspartancoder.com/products-lastvisited5.html");
+	$ch = curl_init("http://www.crazyspartancoder.com/user-account.html");
     curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_exec($ch);
