@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Account From Other Company</title>
+</head>
+<body>
+
+<?php
+    $server="127.0.0.1";
+    $db_username="dog";
+    $db_password="123456";
+    $db_database="php";
+    $conn = mysqli_connect($server,$db_username,$db_password,$db_database);
+    if ($conn->connect_error) 
+    {
+        die("connection error>>>" . $conn->connect_error);
+    } 
+    echo "Get User account from my own Company:";
+    echo "<br>";
+    $q = "select id, username FROM user";
+    $result=$conn->query($q);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "id: ".$row["id"]." -Name: " .$row["username"]."<br>";
+        }
+    }else{
+        echo "O result...<br>";
+    }
+    $conn->close();
+
+    echo "<br>";
+    echo "<br>";
+    echo "Get User account from Company A:";
+    echo "<br>";
+	$ch = curl_init("http://www.crazyspartancoder.com/products-lastvisited5.html");
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_exec($ch);
+    curl_close($ch);
+?>
+</body>
+</html>

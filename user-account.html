@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users List</title>
+</head>
+<body>
+	<?php
+    $server="127.0.0.1";
+    $db_username="dog";
+    $db_password="123456";
+    $db_database="php";
+    $conn = mysqli_connect($server,$db_username,$db_password,$db_database);
+    if ($conn->connect_error) 
+    {
+        die("connection error>>>" . $conn->connect_error);
+    } 
+    echo "Get User account from my own Company:";
+    echo "<br>";
+    $q = "select id, username FROM user";
+    $result=$conn->query($q);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "id: ".$row["id"]." -Name: " .$row["username"]."<br>";
+        }
+    }else{
+        echo "O result...<br>";
+    }
+    $conn->close();
+    echo "<br>";
+    $link_address = 'index.html';
+    echo "<a href='".$link_address."'>Click here to go back.</a>";
+    $link_address1 = 'user-account-from-other-company.html';
+    echo "<br>";
+    echo "<br>";
+    echo "<a href='".$link_address1."'>Get User account from all Companys.</a>";
+?>
+</body>
+</html>
