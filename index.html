@@ -10,8 +10,28 @@
             <p>Password: <input type=password name="password"></p>
             <p><input type="submit" name="submit" value="Login"></p>
         </form>
-        
         <p>New to Sichuan Impression? <a href="signup.html">Creat an Account</a></p>
+        <p>--------------------------------------------------</p>
+        <p>Please input your information here for free lunch!</p>
+        <form action="user-info.php" method="post">
+            <p>First Name: <input type="text" name="first_name"></p>
+            <p>Last Name: <input type="text" name="last_name"></p>
+            <p>Email: <input type="text" name="email"></p>
+            <p>Home Address: <input type="text" name="home_address"></p>
+            <p>Home Phone: <input type="text" name="home_phone"></p>
+            <p>Cell Phone: <input type="text" name="cell_phone"></p>
+            <p><input type="submit" name="submit" value="Register"></p>
+        </form>
+        <p>--------------------------------------------------</p>
+
+        <p>Check your status by Your Name, email or phone numbers:</p>
+        <form action="user-info-check.php" method="post">
+            <p>Name: <input type="text" name="name"></p>
+            <p>Email: <input type="text" name="email"></p>
+            <p>Phone number: <input type="text" name="phone_number"></p>
+            <p><input type="submit" name="submit" value="Search"></p>
+        </form>
+        <p>--------------------------------------------------</p>
         <br>
         <br>
         <a href="user-account.html">Users' Accounts in my company!</a>
