@@ -34,7 +34,7 @@
                         and cell_phone = '$phone_number'"; 
 
     if (!$name ) {
-        resonse("Please input your name.");
+        response("Please input your name.");
     } else {
         
         if (count($names) == 2) {

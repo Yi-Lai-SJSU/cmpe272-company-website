@@ -1,3 +1,14 @@
+#index-block {
+  display: inline-block;
+}
+
+.index-each-block {
+  display: inline-block;
+  align-items: center;
+  padding: 50px;
+}
+
+
 #header {
   width: auto;
   background: black;
