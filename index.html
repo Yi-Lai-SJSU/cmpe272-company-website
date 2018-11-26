@@ -46,6 +46,56 @@
             </form>
             <p>--------------------------------------------------</p>
         </div>
+
+        <div>
+        	<p>All the accounts that have registered for the free lunch!</p>
+        	<?php
+			    $server="127.0.0.1";
+			    $db_username="dog";
+			    $db_password="123456";
+			    $db_database="php";
+
+			    $conn = mysqli_connect($server,$db_username,$db_password,$db_database);
+
+			    if ($conn->connect_error) 
+			    {
+			        die("connection error>>>" . $conn->connect_error);
+			    } 
+
+			    $q = "select * FROM user_info";
+
+			    $result=$conn->query($q);
+			    
+			    if ($result->num_rows > 0) {
+			    	echo"
+			    	     <table border=‘1’>
+			    	     <tr>
+			    			<th>User_id</th>
+			    			<th>First Name</th>
+			    			<th>Last Name</th>
+			    			<th>Email</th>
+			    			<th>Home Address</th>
+			    			<th>Home Phone</th>
+			    			<th>Cell Phone</th>
+			    		 </tr>";
+			        while($row = $result->fetch_assoc()) {
+			        	echo "<tr>";
+			            echo "<td>".$row["user_id"]."</td>";
+			            echo "<td>".$row["first_name"]."</td>";
+			            echo "<td>".$row["last_name"]."</td>";
+			            echo "<td>".$row["email"]."</td>";
+			            echo "<td>".$row["home_address"]."</td>";
+			            echo "<td>".$row["home_phone"]."</td>";
+			            echo "<td>".$row["cell_phone"]."</td>";
+			            echo "</tr>";
+			        }
+			        echo "</table>";
+			    }else{
+			        echo "O result...<br>";
+			    }
+			    $conn->close();
+			?>
+        </div>
     </div>
     </body>
 </html>
