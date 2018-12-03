@@ -16,7 +16,7 @@
         die('Error: ' . mysqli_error());
     }else{
         echo "Success....  <br>";
-        $link_address = 'index.html';
+        $link_address = 'product-register.html';
         echo "<a href='".$link_address."'>Click here go to the Login page.</a>";
     }
     mysqli_close($con);

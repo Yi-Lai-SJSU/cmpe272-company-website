@@ -11,6 +11,7 @@
              $sql = "select * from user where username = '$name' and password='$passowrd'";
              $result = mysqli_query($con,$sql);
              $rows=mysqli_num_rows($result);
+             
              if($rows){
                    header("refresh:0;url=main.html");
                    exit;
