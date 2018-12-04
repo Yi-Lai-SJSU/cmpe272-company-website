@@ -39,9 +39,14 @@
         usort($ret, build_sorter('viewCounts'));   
     }
 
+    echo "[";
     for($i=0;$i<4;$i++) {
         echo json_encode($ret[$i]);
+        if ($i < 4) {
+            echo ",";
+        }
     }
+    echo "]";
     
 // set response code - 200 OK
 http_response_code(200);

@@ -38,6 +38,58 @@
 		<section id="suantangfeiniu-main-section">
 			<img src="../image/suantangfeiniu.jpeg" width="300" height="300">
 			<p>    Suan Tang Fei Niu: $15</p>
+
+
+			<?php
+				include('connect.php');
+				$sql = "select * from products where name = 'suantangyu'";
+				$result = mysqli_query($con,$sql);
+                $rows=mysqli_num_rows($result);
+                $product_id;
+                $name = "suantangyu";
+
+
+                if ($result->num_rows > 0) {
+                   while($row = $result -> fetch_assoc()) {
+                   		echo "Rate: ". $row["averageRating"]."<br><br>";
+                   		$product_id = $row["id"];
+
+                   		$sql_comments = "select * from comments where product_id = '$product_id'";
+                   		$result_comments = mysqli_query($con,$sql_comments);
+                   		$rows_comments = mysqli_num_rows($result_comments);
+
+                   		$count = 0;
+                   		echo "<p>---------------------------------------------</p>";
+                   		echo "Customers' comments list: "."<br>";
+                   		if ($result_comments -> num_rows > 0) {
+                   			while($row = $result_comments -> fetch_assoc()) {
+                   				$count++;
+                   				echo $count."---".$row["comment"]."<br>";
+                   			}
+                   		} else {
+                   			echo "No comments right now.";
+                   		}
+                   }
+                }else{
+                	echo "null";	
+            	}	
+			?>
+
+			<p> ----------Submit your comment about this product here:------------</p>
+
+			<form action="comments.php" method="post">
+				<p>Product Id: <input type="text" value = <?php echo $product_id;?> name="product_id"></p>
+				<p>Product Name: <input type="text" value = <?php echo $name?> name="name"></p>
+                <p>Comment: <input type="text" name="comment"></p>
+                <p><input type="submit" name="submit" value="Summit Comment"></p>
+                <p>--------------------------------------------------</p>
+            </form>
+
+
+
+
+
+
 			<p>Last Visit time: <p> 
 				<?php 
 				if (isset($_COOKIE["suantangfeiniu"]))
