@@ -45,6 +45,8 @@
 				$result = mysqli_query($con,$sql);
                 $rows=mysqli_num_rows($result);
                 $product_id;
+                $name = "chaoshou";
+
 
                 if ($result->num_rows > 0) {
                    while($row = $result -> fetch_assoc()) {
@@ -76,11 +78,12 @@
 
 			<form action="comments.php" method="post">
 				<p>Product Id: <input type="text" value = <?php echo $product_id;?> name="product_id"></p>
-				<p>Product Name: <input type="text" value = "chaoshou" name="name"></p>
+				<p>Product Name: <input type="text" value = <?php echo $name?> name="name"></p>
                 <p>Comment: <input type="text" name="comment"></p>
                 <p><input type="submit" name="submit" value="Summit Comment"></p>
                 <p>--------------------------------------------------</p>
             </form>
+
 
 
 
