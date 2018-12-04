@@ -11,16 +11,38 @@
         die("connection error>>>" . $conn->connect_error);
     } 
 
+
+    function build_sorter($key)
+    {
+        return function ($a,$b) use ($key) {
+            $stringCountA = $a[$key];
+            $intCountA = (int)$stringCountA;
+            $stringCountB = $b["$key"];
+            $intCountB = (int)$stringCountB;
+
+            if ($intCountA < $intCountB) {
+                return +1;
+            } else {
+                return -1;
+            }
+        };
+    }
+
     $q = "select * FROM products";
     $result=$conn->query($q);
     $ret = array();
+    $mostFive = array();
     if ($result -> num_rows > 0) {
         while ($current = $result -> fetch_assoc()) {
             array_push($ret, $current);
         }
-        echo json_encode($ret);
+        usort($ret, build_sorter('viewCounts'));   
     }
 
+    for($i=0;$i<4;$i++) {
+        echo json_encode($ret[$i]);
+    }
+    
 // set response code - 200 OK
 http_response_code(200);
 
