@@ -28,7 +28,7 @@
 			<p>Welcome to Sichuan Impression</p>
 			<div id="user-acount">
 				<?php
-				if(isset($_SESSION['username'])) {
+				if($_SESSION['firstName'] == "") {
 					 echo '<a href="indexfalse.html">login/Sign up</a>';
 				} else {
 				     echo '<a href="destroy.php">logout</a>';
