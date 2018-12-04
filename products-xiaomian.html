@@ -1,4 +1,5 @@
 <?php
+session_start();
 	extract( $_GET);
 
 	$count = 0;
@@ -27,7 +28,10 @@
 <body>
 	<header id="header">
 		<nav id="header-navigation" class="header-navigation">
-			<a href="main.html">HOME</a>
+			<a href="index.html">
+				<?php
+	echo $_SESSION['firstName'];
+?>:Home</a>
 			<a href="about.html">ABOUT</a>
 			<a href="products.html">PRODUCTS</a>
 			<a href="news.html">NEWS</a>
@@ -38,6 +42,10 @@
 		<section id="xiaomian-main-section">
 			<img src="../image/xiaomian.jpeg" width="300" height="250">
 			<p>    Xiao Mian: $15</p>
+
+			<?php
+				echo $_SERVER["QUERY_STRING"]."<br>";
+			?>
 
 			<?php
 				include('connect.php');

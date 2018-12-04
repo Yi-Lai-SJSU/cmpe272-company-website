@@ -1,101 +1,47 @@
-<!doctype html>
+<?php
+	session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style/style.css">
-        <title>Login in</title>
-    </head>
-    <body>
-    <div id = "index-block">
-        <div class="index-each-block"> 
-            <form name="login" action="login.php" method="post">
-                <p>Username: <input type=text name="name"></p>
-                <p>Password: <input type=password name="password"></p>
-                <p><input type="submit" name="submit" value="Login"></p>
-            </form>
-            <p>New to Sichuan Impression? <a href="signup.html">Creat an Account</a></p>
-            <br>
-            <a href="user-account.html">Users' Accounts in my company!</a>
-            <br>
-            <a href="user-account-from-other-company.html">Users' accounts from all Companies.</a>
-        </div>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Sichuan Impression</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Black" rel="stylesheet">
+</head>
+<body>
+	<header id="header">
+		<nav id="header-navigation" class="header-navigation">
+			<a href="index.html">
+			<?php
+					echo $_SESSION['firstName'];
+			?>:Home</a>
+			<a href="about.html">ABOUT</a>
+			<a href="products.html">PRODUCTS</a>
+			<a href="news.html">NEWS</a>
+			<a href="contacts.html">CONTACTS</a>
+		</nav>
+	</header>
+	<main id="index-main" class="main">
+		<section>
+			<p>Welcome to Sichuan Impression</p>
+			<div id="user-acount">
+				<?php
+				if(isset($_SESSION['username'])) {
+					 echo '<a href="indexfalse.html">login/Sign up</a>';
+				} else {
+				     echo '<a href="destroy.php">logout</a>';
+				}
+				?>
+			</div>
 
-        <div class="index-each-block"> 
-            <p>--------------------------------------------------</p>
-            <p>Please input your information here for free lunch!</p>
-            <form action="user-info.php" method="post">
-                <p>First Name: <input type="text" name="first_name"></p>
-                <p>Last Name: <input type="text" name="last_name"></p>
-                <p>Email: <input type="text" name="email"></p>
-                <p>Home Address: <input type="text" name="home_address"></p>
-                <p>Home Phone: <input type="text" name="home_phone"></p>
-                <p>Cell Phone: <input type="text" name="cell_phone"></p>
-                <p><input type="submit" name="submit" value="Register"></p>
-                <p>--------------------------------------------------</p>
-            </form>
-        </div>
-
-        <div class="index-each-block"> 
-            <p>--------------------------------------------------</p>
-            <p>Check your status by Your Name, email or phone numbers:</p>
-            <form action="user-info-check.php" method="post">
-                <p>Name: <input type="text" name="name"></p>
-                <p>Email: <input type="text" name="email"></p>
-                <p>Phone number: <input type="text" name="phone_number"></p>
-                <p><input type="submit" name="submit" value="Search"></p>
-            </form>
-            <p>--------------------------------------------------</p>
-        </div>
-
-        <div>
-        	<p>All the accounts that have registered for the free lunch!</p>
-        	<?php
-			    $server="127.0.0.1";
-			    $db_username="dog";
-			    $db_password="123456";
-			    $db_database="php";
-
-			    $conn = mysqli_connect($server,$db_username,$db_password,$db_database);
-
-			    if ($conn->connect_error) 
-			    {
-			        die("connection error>>>" . $conn->connect_error);
-			    } 
-
-			    $q = "select * FROM user_info";
-
-			    $result=$conn->query($q);
-			    
-			    if ($result->num_rows > 0) {
-			    	echo"
-			    	     <table border=‘1’>
-			    	     <tr>
-			    			<th>User_id</th>
-			    			<th>First Name</th>
-			    			<th>Last Name</th>
-			    			<th>Email</th>
-			    			<th>Home Address</th>
-			    			<th>Home Phone</th>
-			    			<th>Cell Phone</th>
-			    		 </tr>";
-			        while($row = $result->fetch_assoc()) {
-			        	echo "<tr>";
-			            echo "<td>".$row["user_id"]."</td>";
-			            echo "<td>".$row["first_name"]."</td>";
-			            echo "<td>".$row["last_name"]."</td>";
-			            echo "<td>".$row["email"]."</td>";
-			            echo "<td>".$row["home_address"]."</td>";
-			            echo "<td>".$row["home_phone"]."</td>";
-			            echo "<td>".$row["cell_phone"]."</td>";
-			            echo "</tr>";
-			        }
-			        echo "</table>";
-			    }else{
-			        echo "O result...<br>";
-			    }
-			    $conn->close();
-			?>
-        </div>
-    </div>
-    </body>
+		</section>
+	</main>
+</body>
 </html>
+
+
+
+
+
