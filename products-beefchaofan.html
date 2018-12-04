@@ -44,11 +44,11 @@
 
 			<?php
 				include('connect.php');
-				$sql = "select * from products where name = 'beeffriedrices'";
+				$sql = "select * from products where name = 'beefchaofan'";
 				$result = mysqli_query($con,$sql);
                 $rows=mysqli_num_rows($result);
                 $product_id;
-                $name = "beeffriedrices";
+                $name = "beefchaofan";
 
 
                 if ($result->num_rows > 0) {

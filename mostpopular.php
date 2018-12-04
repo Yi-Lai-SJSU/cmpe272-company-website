@@ -36,7 +36,7 @@
         while ($current = $result -> fetch_assoc()) {
             array_push($ret, $current);
         }
-        usort($ret, build_sorter('viewCounts'));   
+        usort($ret, build_sorter('viewCount'));   
     }
 
     echo "[";
