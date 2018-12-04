@@ -1,10 +1,8 @@
 <?php
-
-session_start();
-	extract( $_GET);
-
+	session_start();
+	extract($_GET);
+	include('connect.php');
 	$count = 0;
-	
 	setcookie("douhua[$count]",date('Y-m-d H:i:s'));
 
 	if (isset($_COOKIE["douhua"]))
@@ -16,6 +14,26 @@ session_start();
 	}
 
 	setcookie("douhua[$count]",date('Y-m-d H:i:s'));
+
+	$userToken = $_GET['userToken'];
+	if ($userToken) {
+		$url = "http://teamalphamarket.com/TeamAlphaMarket/ReadUserInfo.php?userToken=".$userToken;
+		$json = file_get_contents($url);
+		$jsoninfo = json_decode($json,true);
+
+		$firstName = $jsoninfo[0]['firstName'];
+		$lastName = $jsoninfo[0]['lastName'];
+		$password = $jsoninfo[0]['password'];
+	}
+
+	if ($firstName && $lastName && $password){      
+		$_SESSION['firstName'] = $firstName; 
+		echo "Welcome," .$_SESSION['firstName'];
+		echo "
+		<script>
+			setTimeout(function(){window.location.href='products-douhua.html';},3000);
+		</script>";
+    }
 ?>
 
 

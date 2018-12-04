@@ -21,14 +21,14 @@
 
 #header-navigation a {
   display: inline-block;
-  width: 80px;
+  width: 100px;
   height: 25px;
   padding: 20px;
   margin-left:40px;
   margin-right: 40px;
   border-radius: 10px;
   color: white;
-  font-size: 10px;
+  font-size: 30px;
   text-align: center;
   font-family: 'Archivo Black', sans-serif;
 }
