@@ -5,12 +5,14 @@
         exit("Wrong execute.");
     }
 
-    $product_id=$_POST['product_id'];
-    $comment=$_POST['comment'];
-    $name=$_POST['name'];
+    $product_id = $_POST['product_id'];
+    $comment = $_POST['comment'];
+    $customer = $_POST['customer'];
+    echo $customer;
+    $name = $_POST['name'];
 
     include('connect.php');
-    $q = "insert into comments(id,product_id,comment) values (null,'$product_id','$comment')";
+    $q = "insert into comments(id,product_id,customer,comment) values (null,'$product_id','$customer','$comment')";
     $reslut=mysqli_query($con,$q);
     
     if (!$reslut){
