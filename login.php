@@ -24,10 +24,13 @@
                     $_SESSION['firstName'] = $current['firstName']; 
 
                     echo "Welcome," .$_SESSION['firstName'];
-                    echo "
-                      <script>
-                        setTimeout(function(){window.location.href='index.html';},5000);
-                      </script>";
+                    echo "Success....  <br>";
+                    $link_address = 'index.html';
+                    $_SESSION['firstName'] = $firstName;
+                    echo $link_address;
+                    echo "<script type='text/javascript'>";
+                    echo "window.location.href='$link_address'";
+                    echo "</script>";
                 }
                 exit;
              }else{

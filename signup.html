@@ -1,13 +1,35 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Signup Page</title>
+        <title>Striped by HTML5 UP</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
     </head>
     <body>
-        <form action="signup.php" method="post">
-            <p>Username:<input type="text" name="name"></p>
+        <form action="signup.php" method="post" style="padding-left: 500px;padding-bottom: 500px">
+
+        <section style="display: inline-block;padding-top: 200px;">
+            <p>First name: <input type="text" name="firstName"></p>
+            <p>Last name: <input type="text" name="lastName"></p>
+            <p>Email Address: <input type="text" name="emailAddress"></p>
             <p>Password: <input type="text" name="password"></p>
+            <p>Group ID: <input type="text" name="groupID"></p>
+        </section>
+
+        <section style="display: inline-block;padding-top: 200px">
+            <p>Street Address: <input type="text" name="streetAddress"></p>
+            <p>Apt: <input type="text" name="apt"></p>
+            <p>City: <input type="text" name="city"></p>
+            <p>State: <input type="text" name="state"></p>
+            <p>Zip code: <input type="text" name="zipcode"></p>
+        </section>
+
+        <section style="display: inline-block;padding-top: 200px">
+            <p>Home Phone: <input type="text" name="homePhone"></p>
+            <p>Cell Phone: <input type="text" name="cellPhone"></p>
+            
+        </section>
             <p><input type="submit" name="submit" value="Register"></p>
         </form>
     </body>

@@ -8,7 +8,6 @@
     $product_id = $_POST['product_id'];
     $comment = $_POST['comment'];
     $customer = $_POST['customer'];
-    echo $customer;
     $name = $_POST['name'];
 
     include('connect.php');
@@ -18,9 +17,14 @@
     if (!$reslut){
         die('Error: ' . mysqli_error());
     }else{
-        echo "Success....  <br>";
+        echo "Comments Submit Success. Thank you very much ";
+        echo $customer;
+        echo " <br>";
         $link_address = 'products-'.$name.'.html';
-        echo "<a href='".$link_address."'>Click here go to the product page</a>";
+        echo $link_address;
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$link_address'";
+        echo "</script>";
     }
     mysqli_close($con);
 ?>
