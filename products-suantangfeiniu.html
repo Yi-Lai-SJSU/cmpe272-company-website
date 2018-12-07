@@ -142,6 +142,108 @@
 				                   	}
 				                }
 				            ?>
+
+
+				            <h3 style="font-size: 20px">Please add your rate here:</h3>
+<body>
+	<div>
+		<a href="javascript:click(1)"><img src="img/star.png" id="star1" onMouseOver="over(1)" onMouseOut="out(1)"/></a>
+		<a href="javascript:click(2)"><img src="img/star.png" id="star2" onMouseOver="over(2)" onMouseOut="out(2)" /></a>
+		<a href="javascript:click(3)"><img src="img/star.png" id="star3" onMouseOver="over(3)" onMouseOut="out(3)" /></a>
+		<a href="javascript:click(4)"><img src="img/star.png" id="star4" onMouseOver="over(4)" onMouseOut="out(4)"/></a>
+		<a href="javascript:click(5)"><img src="img/star.png" id="star5" onMouseOver="over(5)" onMouseOut="out(5)"/></a>
+		<span id="message"></span>
+	</div>
+</body>
+<script type="text/javascript">
+var check = 0;//该变量是记录当前选择的评分
+var time = 0;//该变量是统计用户评价的次数，这个是我的业务要求统计的（改变评分不超过三次），可以忽略
+
+/*over()是鼠标移过事件的处理方法*/
+function over(param){
+	if(param == 1){
+		$("#star1").attr("src","img/star_red.png");//第一颗星星亮起来，下面以此类推
+		$("#message").html("Very Poor");//设置提示语，下面以此类推
+	}else if(param == 2){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#message").html("Relatively Poor");
+	}else if(param == 3){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#message").html("Normal");
+	}else if(param == 4){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#star4").attr("src","img/star_red.png");
+		$("#message").html("Relatively Good");
+	}else if(param == 5){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#star4").attr("src","img/star_red.png");
+		$("#star5").attr("src","img/star_red.png");
+		$("#message").html("Very Good");
+	}
+}
+/*out 方法是鼠标移除事件的处理方法，当鼠标移出时，恢复到我的打分情况*/
+function out(){
+	if(check == 1){//打分是1，设置第一颗星星亮，其他星星暗，其他情况以此类推
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star.png");
+		$("#star3").attr("src","img/star.png");
+		$("#star4").attr("src","img/star.png");
+		$("#star5").attr("src","img/star.png");
+		$("#message").html("<?php $star = 1; echo $star; ?>");
+	}else if(check == 2){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star.png");
+		$("#star4").attr("src","img/star.png");
+		$("#star5").attr("src","img/star.png");
+		$("#message").html("<?php $star = 2; echo $star; ?>");
+	}else if(check == 3){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#star4").attr("src","img/star.png");
+		$("#star5").attr("src","img/star.png");
+		$("#message").html("<?php $star = 3;echo $star; ?>");
+	}else if(check == 4){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#star4").attr("src","img/star_red.png");
+		$("#star5").attr("src","img/star.png");
+		$("#message").html("<?php $star = 4; echo $star; ?>");
+	}else if(check == 5){
+		$("#star1").attr("src","img/star_red.png");
+		$("#star2").attr("src","img/star_red.png");
+		$("#star3").attr("src","img/star_red.png");
+		$("#star4").attr("src","img/star_red.png");
+		$("#star5").attr("src","img/star_red.png");
+		$("#message").html("<?php $star = 5; echo $star; ?>");
+	}else if(check == 0){
+		$("#star1").attr("src","img/star.png");
+		$("#star2").attr("src","img/star.png");
+		$("#star3").attr("src","img/star.png");
+		$("#star4").attr("src","img/star.png");
+		$("#star5").attr("src","img/star.png");
+		$("#message").html("<?php $star = 0; echo $star; ?>");
+	}
+}
+/*click()点击事件处理，记录打分*/
+function click(param){
+	time++;//记录打分次数
+	check = param;//记录当前打分
+	out();//设置星星数
+}
+</script>
+
+
+
 				            <h2>Please add your comments here:</h2>
 							<form action="comments.php" method="post">
 								<p><input type="hidden" value = <?php echo $product_id;?> name="product_id"></p>
